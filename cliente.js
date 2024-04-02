@@ -15,7 +15,13 @@ const rl = readline.createInterface({
 
 // Lidar com mensagens do servidor
 client.on('data', (mensagem) => {
-  console.log('Mensagem recebida do servidor:', mensagem.toString('utf8'));
+  client.write(mensagem);
+  //console.log('Mensagem recebida do servidor:', mensagem.toString('utf8'));
+});
+
+
+rl.question('Cliente: ', (input) => {
+  client.write(input);
 });
 
 // Lidar com a desconexão do servidor
@@ -27,7 +33,7 @@ client.on('close', () => {
 // Enviar uma mensagem para o servidor
 client.write('Olá, servidor!\r\n', () => {
   client.end();  
-});*/
+});
 
 // Perguntar ao usuário e processar a entrada
 rl.question('Digite um número para ver sua tabuada: ', (input) => {
@@ -40,4 +46,4 @@ rl.question('Digite um número para ver sua tabuada: ', (input) => {
     console.log("Número inválido. Tente novamente.");
     rl.close(); // Fechar a interface de leitura em caso de número inválido
   }
-});
+});*/

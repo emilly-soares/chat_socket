@@ -4,7 +4,7 @@ const porta = 3001;
 
 // Criar um servidor de socket
 const server = net.createServer((socket) => {
-  //console.log('Cliente conectado');
+  console.log('Cliente conectado');
   
   // Enviar uma mensagem para o cliente
   socket.write(`Requisição de ${socket.remoteAddress.toString('utf8')} na porta porta ${socket.remotePort}`)
